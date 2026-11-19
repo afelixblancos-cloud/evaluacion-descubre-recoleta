@@ -1,0 +1,889 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <main class="pagina-recoleta">
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navegacion">
+      <a href="/" class="logo">Recoleta<span>.</span></a>
+
+      <div class="menu">
+        <a href="/">Inicio</a>
+        <a href="/lugares-destacados">Lugares destacados</a>
+        <a href="/historia-cultura">Historia y cultura</a>
+      </div>
+
+      <a href="/lugares-destacados" class="boton-nav">
+        Explorar ↗
+      </a>
+    </nav>
+
+    <!-- PORTADA -->
+    <section class="portada">
+      <div class="portada-texto">
+        <span class="etiqueta">✦ DESCUBRE SANTIAGO DESDE OTRA MIRADA</span>
+
+        <h1>
+          Recoleta,
+          <span>un lugar lleno</span>
+          de historias.
+        </h1>
+
+        <p>
+          Descubre una comuna donde el patrimonio, la cultura y la tradición
+          se encuentran. Recorre sus calles y conoce los lugares que forman
+          parte de su identidad.
+        </p>
+
+        <div class="acciones">
+          <a href="/lugares-destacados" class="boton-principal">
+            Explorar lugares ↗
+          </a>
+
+          <a href="/historia-cultura" class="enlace-secundario">
+            Conocer su historia ↗
+          </a>
+        </div>
+
+        <div class="estadisticas">
+          <div>
+            <strong>01</strong>
+            <small>Patrimonio</small>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <small>Historia</small>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <small>Cultura</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRES FOTOGRAFÍAS OVALADAS -->
+      <div class="portada-fotos">
+        <div class="foto-arco foto-uno">
+          <img
+            src="/images/cerro-blanco.jpg"
+            alt="Paisaje del Cerro Blanco en Recoleta"
+          />
+        </div>
+
+        <div class="foto-arco foto-dos">
+          <img
+            src="/images/recoleta-dominica.jpg"
+            alt="Conjunto patrimonial de Recoleta Dominica"
+          />
+        </div>
+
+        <div class="foto-arco foto-tres">
+          <img
+            src="/images/cementerio-general.jpg"
+            alt="Cementerio General de Recoleta"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENTACIÓN -->
+    <section class="presentacion">
+      <div class="presentacion-imagen">
+        <img
+          src="/images/la-vega.jpg"
+          alt="La Vega Central de Recoleta"
+        />
+        <span class="imagen-etiqueta">RECOLETA · SANTIAGO DE CHILE</span>
+      </div>
+
+      <div class="presentacion-texto">
+        <span class="etiqueta">UNA COMUNA CON IDENTIDAD</span>
+
+        <h2>
+          Mucho más que un lugar,
+          <span>una historia que contar.</span>
+        </h2>
+
+        <p>
+          Recoleta es una comuna que destaca por su diversidad, sus espacios
+          tradicionales y su riqueza patrimonial. En sus calles conviven
+          distintas culturas, historias y formas de vivir que la convierten
+          en un lugar especial.
+        </p>
+
+        <a href="/historia-cultura" class="enlace-secundario">
+          Descubrir su historia ↗
+        </a>
+      </div>
+    </section>
+
+    <!-- LUGARES DESTACADOS -->
+    <section class="destinos" id="lugares">
+      <div class="titulo-seccion">
+        <div>
+          <span class="etiqueta">✦ RINCONES POR DESCUBRIR</span>
+          <h2>Lugares que <span>dejan huella.</span></h2>
+        </div>
+
+        <a href="/lugares-destacados" class="enlace-secundario">
+          Ver todos los lugares ↗
+        </a>
+      </div>
+
+      <div class="galeria">
+        <a href="/lugares-destacados" class="destino destino-grande">
+          <img
+            src="/images/cementerio-general.jpg"
+            alt="Cementerio General"
+          />
+
+          <div class="destino-info">
+            <span>01 · PATRIMONIO</span>
+            <h3>Cementerio General</h3>
+            <p>Historia, arquitectura y memoria.</p>
+          </div>
+        </a>
+
+        <a href="/lugares-destacados" class="destino destino-alto">
+          <img
+            src="/images/la-vega.jpg"
+            alt="La Vega Central"
+          />
+
+          <div class="destino-info">
+            <span>02 · TRADICIÓN</span>
+            <h3>La Vega Central</h3>
+            <p>Sabores, colores y diversidad.</p>
+          </div>
+        </a>
+
+        <a href="/lugares-destacados" class="destino destino-bajo">
+          <img
+            src="/images/cerro-blanco.jpg"
+            alt="Cerro Blanco"
+          />
+
+          <div class="destino-info">
+            <span>03 · NATURALEZA</span>
+            <h3>Cerro Blanco</h3>
+            <p>Un espacio de naturaleza e historia.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- HISTORIA Y CULTURA -->
+    <section class="historia">
+      <div class="historia-texto">
+        <span class="etiqueta">✦ CONOCE SUS RAÍCES</span>
+
+        <h2>
+          El pasado vive en cada
+          <span>rincón de Recoleta.</span>
+        </h2>
+
+        <p>
+          Su historia está presente en sus construcciones, tradiciones y
+          espacios culturales. Conocerla permite comprender cómo se ha
+          formado la identidad de esta comuna y el valor que tiene para
+          Santiago.
+        </p>
+
+        <a href="/historia-cultura" class="boton-principal">
+          Explorar historia ↗
+        </a>
+      </div>
+
+      <div class="historia-imagen">
+        <img
+          src="/images/recoleta-dominica.jpg"
+          alt="Patrimonio arquitectónico de Recoleta Dominica"
+        />
+        <span>UN LEGADO QUE PERMANECE</span>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="cierre">
+      <span class="etiqueta">RECOLETA TE ESPERA</span>
+
+      <h2>
+        Hay historias que merecen
+        <span>ser descubiertas.</span>
+      </h2>
+
+      <p>
+        Conoce sus lugares, descubre su cultura y déjate sorprender.
+      </p>
+
+      <a href="/lugares-destacados" class="boton-principal">
+        Comenzar recorrido ↗
+      </a>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+      <a href="/" class="logo">Recoleta<span>.</span></a>
+
+      <p>Conociendo Recoleta · Patrimonio, historia y cultura.</p>
+
+      <a href="/historia-cultura">Conoce más ↗</a>
+    </footer>
+
+  </main>
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  .pagina-recoleta {
+    --fondo: #101e17;
+    --fondo-claro: #183c29;
+    --verde: #28563b;
+    --verde-brillante: #8ccb83;
+    --verde-claro: #a8e6a0;
+    --dorado: #d9c58b;
+    --texto: #f4f5e9;
+    --texto-suave: #c0cbbd;
+
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--texto);
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(68, 132, 78, .19), transparent 35%),
+      radial-gradient(ellipse at 5% 45%, rgba(65, 112, 70, .13), transparent 30%),
+      var(--fondo);
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .pagina-recoleta a {
+    text-decoration: none;
+  }
+
+  /* NAVEGACIÓN */
+
+  .navegacion {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 28px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+  }
+
+  .logo {
+    color: var(--texto);
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+
+  .logo span {
+    color: var(--verde-claro);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .menu a,
+  .enlace-secundario {
+    color: var(--texto-suave);
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+  }
+
+  .menu a:hover,
+  .enlace-secundario:hover {
+    color: var(--verde-claro);
+  }
+
+  .boton-nav,
+  .boton-principal {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 23px;
+    border-radius: 50px;
+    color: #102217;
+    background: linear-gradient(110deg, #8ccb83, #d0e7a1);
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 8px 28px rgba(140, 203, 131, .2);
+    transition: .3s;
+  }
+
+  .boton-nav:hover,
+  .boton-principal:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(140, 203, 131, .35);
+  }
+
+  /* PORTADA */
+
+  .portada {
+    width: min(1180px, 90%);
+    min-height: 600px;
+    margin: 40px auto 110px;
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .portada-texto {
+    position: relative;
+    z-index: 2;
+  }
+
+  .etiqueta {
+    display: inline-block;
+    color: var(--dorado);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+  .portada h1,
+  .presentacion-texto h2,
+  .titulo-seccion h2,
+  .historia h2,
+  .cierre h2 {
+    margin: 22px 0;
+    color: var(--texto);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.12;
+  }
+
+  .portada h1 {
+    max-width: 580px;
+    font-size: clamp(48px, 6vw, 76px);
+  }
+
+  .portada h1 span,
+  .presentacion-texto h2 span,
+  .titulo-seccion h2 span,
+  .historia h2 span,
+  .cierre h2 span {
+    color: var(--verde-claro);
+    text-shadow: 0 0 20px rgba(140, 203, 131, .2);
+  }
+
+  .portada-texto > p,
+  .presentacion-texto p,
+  .historia-texto p,
+  .cierre p {
+    max-width: 480px;
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .estadisticas {
+    display: flex;
+    gap: 35px;
+    margin-top: 65px;
+  }
+
+  .estadisticas div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 14px;
+    border-left: 2px solid var(--verde-brillante);
+  }
+
+  .estadisticas strong {
+    color: var(--dorado);
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+  }
+
+  .estadisticas small {
+    color: var(--texto-suave);
+    font-size: 11px;
+  }
+
+  /* FOTOGRAFÍAS OVALADAS */
+
+  .portada-fotos {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .portada-fotos::before {
+    position: absolute;
+    content: '';
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: rgba(104, 165, 100, .13);
+    filter: blur(65px);
+  }
+
+  .foto-arco {
+    position: relative;
+    overflow: hidden;
+    border-radius: 180px;
+    background: var(--fondo-claro);
+    transition: .5s;
+  }
+
+  .foto-arco img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s;
+  }
+
+  .foto-arco:hover img {
+    transform: scale(1.08);
+  }
+
+  .foto-uno {
+    width: 29%;
+    height: 310px;
+    margin-top: 65px;
+    border: 2px solid var(--verde-brillante);
+    box-shadow: 0 0 30px rgba(140, 203, 131, .16);
+  }
+
+  .foto-dos {
+    width: 35%;
+    height: 450px;
+    border: 2px solid var(--dorado);
+    box-shadow: 0 0 35px rgba(217, 197, 139, .13);
+  }
+
+  .foto-tres {
+    width: 29%;
+    height: 310px;
+    margin-top: 65px;
+    border: 2px solid var(--verde-claro);
+    box-shadow: 0 0 30px rgba(168, 230, 160, .15);
+  }
+
+  /* PRESENTACIÓN */
+
+  .presentacion {
+    width: min(1080px, 86%);
+    margin: 100px auto 140px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 100px;
+  }
+
+  .presentacion-imagen {
+    position: relative;
+    height: 440px;
+  }
+
+  .presentacion-imagen::before {
+    position: absolute;
+    content: '';
+    inset: -15px 15px 15px -15px;
+    border: 1px solid rgba(140, 203, 131, .4);
+    border-radius: 190px 190px 15px 15px;
+  }
+
+  .presentacion-imagen img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 190px 190px 15px 15px;
+  }
+
+  .imagen-etiqueta {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    padding: 12px 17px;
+    border-radius: 30px;
+    color: var(--dorado);
+    background: rgba(16, 30, 23, .85);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .presentacion-texto h2,
+  .historia h2 {
+    font-size: clamp(36px, 4vw, 49px);
+  }
+
+  .presentacion-texto .enlace-secundario {
+    display: inline-block;
+    margin-top: 18px;
+  }
+
+  /* GALERÍA DE LUGARES */
+
+  .destinos {
+    width: min(1180px, 90%);
+    margin: 130px auto;
+  }
+
+  .titulo-seccion {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 45px;
+  }
+
+  .titulo-seccion h2 {
+    margin-bottom: 0;
+    font-size: clamp(38px, 5vw, 55px);
+  }
+
+  .titulo-seccion > a {
+    margin-bottom: 10px;
+  }
+
+  .galeria {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    grid-template-rows: 240px 240px;
+    gap: 22px;
+  }
+
+  .destino {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(140, 203, 131, .22);
+    border-radius: 20px;
+    background: var(--fondo-claro);
+  }
+
+  .destino-grande {
+    grid-row: span 2;
+  }
+
+  .destino img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s;
+  }
+
+  .destino:hover img {
+    transform: scale(1.07);
+  }
+
+  .destino::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background: linear-gradient(transparent 25%, rgba(8, 20, 13, .9));
+  }
+
+  .destino-info {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 25px;
+    left: 25px;
+  }
+
+  .destino-info span {
+    color: var(--dorado);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .destino-info h3 {
+    margin: 8px 0;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+  }
+
+  .destino-info p {
+    margin: 0;
+    color: #e0e8dc;
+    font-size: 12px;
+  }
+
+  /* HISTORIA */
+
+  .historia {
+    width: min(1080px, 86%);
+    margin: 140px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+  }
+
+  .historia-texto .boton-principal {
+    margin-top: 18px;
+  }
+
+  .historia-imagen {
+    position: relative;
+    height: 400px;
+  }
+
+  .historia-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 150px 20px 20px;
+    border: 1px solid rgba(140, 203, 131, .4);
+  }
+
+  .historia-imagen span {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 12px 17px;
+    border-radius: 30px;
+    color: var(--dorado);
+    background: rgba(16, 30, 23, .9);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  /* CIERRE */
+
+  .cierre {
+    position: relative;
+    width: min(1180px, 90%);
+    margin: 140px auto 80px;
+    padding: 90px 30px;
+    overflow: hidden;
+    border: 1px solid rgba(140, 203, 131, .25);
+    border-radius: 30px;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(93, 157, 88, .27), transparent 65%),
+      linear-gradient(135deg, #183c29, #14271b);
+    text-align: center;
+  }
+
+  .cierre h2 {
+    max-width: 720px;
+    margin: 20px auto;
+    font-size: clamp(38px, 5vw, 57px);
+  }
+
+  .cierre p {
+    max-width: 600px;
+    margin: 0 auto 28px;
+  }
+
+  /* PIE DE PÁGINA */
+
+  .pie {
+    width: min(1180px, 90%);
+    margin: auto;
+    padding: 35px 0;
+    border-top: 1px solid rgba(140, 203, 131, .2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .pie p,
+  .pie > a:last-child {
+    color: var(--texto-suave);
+    font-size: 12px;
+  }
+
+  .pie > a:last-child:hover {
+    color: var(--verde-claro);
+  }
+
+  /* ADAPTACIÓN A TABLETS */
+
+  @media (max-width: 850px) {
+    .portada {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+    }
+
+    .portada-texto {
+      text-align: center;
+    }
+
+    .portada h1,
+    .portada-texto > p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .acciones,
+    .estadisticas {
+      justify-content: center;
+    }
+
+    .portada-fotos {
+      min-height: 430px;
+    }
+
+    .foto-uno,
+    .foto-tres {
+      height: 270px;
+    }
+
+    .foto-dos {
+      height: 390px;
+    }
+
+    .presentacion,
+    .historia {
+      gap: 45px;
+    }
+  }
+
+  /* ADAPTACIÓN A CELULARES */
+
+  @media (max-width: 600px) {
+    .navegacion {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 100%;
+      text-align: center;
+    }
+
+    .menu {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .menu a {
+      font-size: 11px;
+    }
+
+    .boton-nav {
+      display: none;
+    }
+
+    .portada {
+      margin-top: 35px;
+      margin-bottom: 70px;
+    }
+
+    .portada h1 {
+      font-size: 48px;
+    }
+
+    .portada-texto > p {
+      font-size: 13px;
+    }
+
+    .acciones {
+      gap: 18px;
+    }
+
+    .estadisticas {
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .portada-fotos {
+      min-height: 300px;
+      gap: 8px;
+    }
+
+    .foto-uno,
+    .foto-tres {
+      height: 190px;
+      margin-top: 35px;
+    }
+
+    .foto-dos {
+      height: 280px;
+    }
+
+    .presentacion,
+    .historia {
+      grid-template-columns: 1fr;
+      width: 88%;
+      margin: 85px auto;
+      gap: 40px;
+    }
+
+    .presentacion-imagen {
+      height: 330px;
+    }
+
+    .presentacion-texto h2,
+    .historia h2 {
+      font-size: 38px;
+    }
+
+    .destinos {
+      margin: 90px auto;
+    }
+
+    .titulo-seccion {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .galeria {
+      grid-template-columns: 1fr;
+      grid-template-rows: 300px 250px 250px;
+    }
+
+    .destino-grande {
+      grid-row: auto;
+    }
+
+    .historia-imagen {
+      height: 300px;
+    }
+
+    .cierre {
+      margin: 90px auto 50px;
+      padding: 65px 20px;
+    }
+
+    .pie {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

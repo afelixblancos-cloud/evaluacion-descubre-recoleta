@@ -1,0 +1,81 @@
+:root {
+  --primary: #1b4d3e;          /* Verde bosque profundo */
+  --primary-hover: #143a2f;    /* Verde más oscuro para estados hover */
+  --primary-light: #e8f5e9;    /* Verde menta claro para tarjetas y fondos suave */
+  --secondary: #2e7d32;        /* Verde esmeralda */
+  --accent: #f59e0b;           /* Dorado / Cálido para destacar detalles */
+  --text: #1f2937;
+  --text-muted: #4b5563;
+  --bg: #f4f7f4;               /* Fondo ligero con leve matiz verde */
+  --surface: #ffffff;
+  --border: #c8e6c9;           /* Borde sutil verde pastel */
+  --radius: 12px;
+  --shadow: 0 10px 15px -3px rgba(27, 77, 62, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 25px -5px rgba(27, 77, 62, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --max-width: 1200px;
+}
+
+/* Modo Oscuro con tonalidades verdes de noche */
+[data-theme="dark"] {
+  --primary: #4ade80;          /* Verde menta brillante */
+  --primary-hover: #22c55e;
+  --primary-light: #062319;    /* Verde noche oscuro */
+  --secondary: #10b981;
+  --text: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --bg: #091711;               /* Fondo verde bosque profundo nocturno */
+  --surface: #112a20;
+  --border: #1e4635;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  flex: 1;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+h2 { font-size: 1.85rem; margin-bottom: 1rem; }
+
+p { margin-bottom: 1rem; color: var(--text-muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-out forwards;
+}

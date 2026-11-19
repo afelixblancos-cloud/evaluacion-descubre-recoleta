@@ -1,0 +1,77 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Conoce el patrimonio histórico y cultural de Recoleta' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | Conocer Recoleta</title>
+</head>
+<body>
+  <Header />
+  <main class="animate-fade">
+    <slot />
+  </main>
+  <Footer />
+
+  <!-- Botón Flotante para Modo Oscuro -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema">
+    🌙
+  </button>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (toggleBtn) toggleBtn.textContent = '☀️';
+    }
+
+    toggleBtn?.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      toggleBtn.textContent = isDark ? '🌙' : '☀️';
+    });
+  </script>
+
+  <style>
+    .theme-toggle-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      z-index: 100;
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</body>
+</html>

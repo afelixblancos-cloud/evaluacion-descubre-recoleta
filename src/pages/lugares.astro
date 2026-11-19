@@ -1,0 +1,599 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CardLugar from '../components/CardLugar.astro';
+
+const lugares = [
+  {
+    id: 'cementerio',
+    titulo: 'Cementerio General de Santiago',
+    categoria: 'Histórico',
+    descripcion: 'Inaugurado en 1821 por Bernardo O’Higgins, es una auténtica ciudad mausoleo con más de 86 hectáreas de esculturas, arquitectura neoclásica e historia nacional.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Cementerio_General_de_Santiago_-_Entrada.jpg/800px-Cementerio_General_de_Santiago_-_Entrada.jpg',
+    imagenAlt: 'Entrada monumental del Cementerio General de Santiago',
+    lat: -33.4147,
+    lng: -70.6514,
+    horario: 'Lunes a Domingo: 08:30 - 17:30 hrs',
+    ubicacion: 'Av. Profesor Zañartu 951, Recoleta',
+    datoCurioso: 'Alberga las tumbas y mausoleos de casi todos los presidentes de la República de Chile, además de figuras emblemáticas del arte y la ciencia.'
+  },
+  {
+    id: 'cerro',
+    titulo: 'Cerro San Cristóbal (Parquemet)',
+    categoria: 'Naturaleza',
+    descripcion: 'El gran pulmón verde del Gran Santiago. Alberga senderos, el histórico Funicular, el Teleférico, la Cumbre del Santuario y miradores astronómicos y urbanos.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Virgen_del_Cerro_San_Crist%C3%B3bal_-_Santiago_de_Chile.jpg/800px-Virgen_del_Cerro_San_Crist%C3%B3bal_-_Santiago_de_Chile.jpg',
+    imagenAlt: 'Santuario de la Virgen en la cumbre del Cerro San Cristóbal',
+    lat: -33.4253,
+    lng: -70.6331,
+    horario: 'Lunes a Domingo: 06:00 - 20:30 hrs',
+    ubicacion: 'Acceso Pío Nono / Pedro de Valdivia Norte',
+    datoCurioso: 'Es el cuarto parque urbano más grande del mundo, abarcando más de 722 hectáreas entre varias comunas.'
+  },
+  {
+    id: 'chascona',
+    titulo: 'La Chascona (Museo Pablo Neruda)',
+    categoria: 'Cultura',
+    descripcion: 'La icónica residencia construida en 1853 por el Premio Nobel Pablo Neruda para su amor secreto Matilde Urrutia, enmarcada al pie del Cerro San Cristóbal.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/La_Chascona_2017.jpg/800px-La_Chascona_2017.jpg',
+    imagenAlt: 'Fachada azul del Museo Casa La Chascona',
+    lat: -33.4316,
+    lng: -70.6346,
+    horario: 'Miércoles a Domingo: 10:00 - 18:00 hrs',
+    ubicacion: 'Fernando Márquez de la Plata 0192, Bellavista',
+    datoCurioso: 'El nombre "La Chascona" proviene del término quechua que significa "despeinada", en honor a la abundante cabellera rojiza de Matilde Urrutia.'
+  },
+  {
+    id: 'dominica',
+    titulo: 'Iglesia y Convento Recoleta Domínica',
+    categoria: 'Arquitectura',
+    descripcion: 'Monumento Nacional e hito del neoclásico colonial en Chile. Su complejo incluye una histórica biblioteca conventual y museos patrimoniales.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Iglesia_Recoleta_Dominica_Santiago.jpg/800px-Iglesia_Recoleta_Dominica_Santiago.jpg',
+    imagenAlt: 'Fachada e iglesias de la Recoleta Domínica',
+    lat: -33.4192,
+    lng: -70.6438,
+    horario: 'Martes a Viernes: 10:00 - 17:30 hrs',
+    ubicacion: 'Av. Recoleta 683, Recoleta',
+    datoCurioso: 'La iglesia cuenta con un altar esculpido en mármol de Carrara importado directamente desde Italia a finales del siglo XIX.'
+  },
+  {
+    id: 'patronato',
+    titulo: 'Barrio Patronato',
+    categoria: 'Patrimonio Comercial',
+    descripcion: 'Polo multicultural de la comuna famoso por su vibrante vida comercial, gastronomía árabe, asiática e historia de migrantes desde comienzos del siglo XX.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Barrio_Patronato_Santiago.jpg/800px-Barrio_Patronato_Santiago.jpg',
+    imagenAlt: 'Calle comercial del Barrio Patronato',
+    lat: -33.4322,
+    lng: -70.6441,
+    horario: 'Lunes a Sábado: 09:30 - 19:30 hrs',
+    ubicacion: 'Eje Calle Patronato / Santa Filomena',
+    datoCurioso: 'Surgió como barrio de inmigrantes árabes (principalmente palestinos y sirios) y más tarde acogió a las comunidades coreana y china.'
+  },
+  {
+    id: 'franciscana',
+    titulo: 'Iglesia Recoleta Franciscana',
+    categoria: 'Arquitectura',
+    descripcion: 'Construcción colonial de mediados del siglo XVIII vinculada a la obra social de Fray Andresito, pilar devocional y arquitectónico de Recoleta.',
+    imagenSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Iglesia_Recoleta_Franciscana.jpg/800px-Iglesia_Recoleta_Franciscana.jpg',
+    imagenAlt: 'Frontis de la Iglesia Recoleta Franciscana',
+    lat: -33.4331,
+    lng: -70.6475,
+    horario: 'Lunes a Sábado: 09:00 - 18:00 hrs',
+    ubicacion: 'Av. El Salto 120 / Av. Recoleta 220',
+    datoCurioso: 'Aquí reposan los restos del Venerable Fray Andresito, figura históricamente querida por la comunidad recoletana.'
+  }
+];
+---
+
+<BaseLayout title="Lugares Destacados - Neon Edition" description="Explora el patrimonio neón de Recoleta">
+  <!-- Estilos del Mapa y del Tema Neón -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+
+  <div class="neon-wrapper">
+    <!-- Header -->
+    <header class="page-header-neon">
+      <div class="badge-neon">⚡ Explore Recoleta Dark</div>
+      <h1 class="neon-title">Lugares <span class="highlight-neon">Destacados</span></h1>
+      <p class="neon-subtitle">Descubre el mapa patrimonial con estética ciberpunk y neón de alta intensidad.</p>
+    </header>
+
+    <!-- Buscador y Filtros -->
+    <section class="control-panel-neon">
+      <div class="search-box-neon">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="input-search" placeholder="Buscar por nombre, zona o palabra..." />
+        <button id="btn-clear-search" class="clear-btn-neon">&times;</button>
+      </div>
+
+      <div class="filter-pills-neon" id="filter-pills">
+        <button class="pill-neon active" data-filter="todos">✦ Todos ({lugares.length})</button>
+        <button class="pill-neon" data-filter="Histórico">📜 Histórico</button>
+        <button class="pill-neon" data-filter="Naturaleza">🌲 Naturaleza</button>
+        <button class="pill-neon" data-filter="Cultura">🎨 Cultura</button>
+        <button class="pill-neon" data-filter="Arquitectura">🏛️ Arquitectura</button>
+        <button class="pill-neon" data-filter="Patrimonio Comercial">🛍️ Comercial</button>
+      </div>
+    </section>
+
+    <!-- Mapa Oscuro con Borde Glow -->
+    <section class="map-section-neon">
+      <div class="map-header">
+        <h2>📍 Radar Patrimonial</h2>
+        <p>Haz clic en cualquier ubicación para centrar el radar.</p>
+      </div>
+      <div id="map" class="map-container-neon"></div>
+    </section>
+
+    <!-- Grid de Tarjetas -->
+    <section class="catalog-section">
+      <div class="catalog-header-neon">
+        <h2>Catálogo de Puntos de Interés</h2>
+        <span id="results-counter" class="counter-neon">Mostrando {lugares.length} lugares</span>
+      </div>
+
+      <div class="grid" id="grid-lugares">
+        {lugares.map((lugar) => (
+          <div 
+            class="card-wrapper-neon" 
+            data-id={lugar.id}
+            data-categoria={lugar.categoria}
+            data-titulo={lugar.titulo.toLowerCase()}
+            data-descripcion={lugar.descripcion.toLowerCase()}
+            data-lat={lugar.lat}
+            data-lng={lugar.lng}
+          >
+            <CardLugar
+              id={lugar.id}
+              titulo={lugar.titulo}
+              categoria={lugar.categoria}
+              descripcion={lugar.descripcion}
+              imagenSrc={lugar.imagenSrc}
+              imagenAlt={lugar.imagenAlt}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div id="no-results" class="no-results-neon hidden">
+        <div class="no-results-icon">⚠️</div>
+        <h3>Sin coincidencias en el radar</h3>
+        <p>Intenta ajustar la búsqueda o seleccionar otra categoría.</p>
+        <button id="reset-filters-btn" class="btn-reset-neon">Restablecer radar</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal Ficha Extendida Neón -->
+  <div id="modal-info" class="modal-backdrop-neon" aria-hidden="true">
+    <div class="modal-card-neon">
+      <button id="modal-close" class="modal-close-neon">&times;</button>
+      <div class="modal-header">
+        <span id="modal-category" class="modal-category-neon">Categoría</span>
+        <h3 id="modal-title">Título</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal-description" class="modal-desc"></p>
+
+        <div class="info-grid-neon">
+          <div class="info-item">
+            <span class="info-icon">📍</span>
+            <div>
+              <strong>Ubicación:</strong>
+              <p id="modal-location">-</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">⏰</span>
+            <div>
+              <strong>Horario:</strong>
+              <p id="modal-schedule">-</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="curiosity-box-neon">
+          <strong>💡 Dato Patrimonial Curioso:</strong>
+          <p id="modal-curiosity">-</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-focus-map" class="btn-neon-action">Fijar en Mapa 🗺️</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    const rawLugares = [
+      { id: 'cementerio', titulo: 'Cementerio General de Santiago', categoria: 'Histórico', descripcion: 'Inaugurado en 1821, es una ciudad mausoleo de más de 86 hectáreas.', lat: -33.4147, lng: -70.6514, horario: '08:30 - 17:30 hrs', ubicacion: 'Av. Profesor Zañartu 951', datoCurioso: 'Alberga las tumbas de casi todos los presidentes de Chile.' },
+      { id: 'cerro', titulo: 'Cerro San Cristóbal (Parquemet)', categoria: 'Naturaleza', descripcion: 'El gran pulmón verde del Gran Santiago.', lat: -33.4253, lng: -70.6331, horario: '06:00 - 20:30 hrs', ubicacion: 'Acceso Pío Nono', datoCurioso: 'Cuarto parque urbano más grande del mundo (722 hectáreas).' },
+      { id: 'chascona', titulo: 'La Chascona (Museo Pablo Neruda)', categoria: 'Cultura', descripcion: 'Residencia de Pablo Neruda construida en 1853.', lat: -33.4316, lng: -70.6346, horario: '10:00 - 18:00 hrs', ubicacion: 'Fernando Márquez de la Plata 0192', datoCurioso: 'Nombre en quechua que significa despeinada por Matilde Urrutia.' },
+      { id: 'dominica', titulo: 'Iglesia y Convento Recoleta Domínica', categoria: 'Arquitectura', descripcion: 'Monumento Nacional e hito del neoclásico colonial.', lat: -33.4192, lng: -70.6438, horario: '10:00 - 17:30 hrs', ubicacion: 'Av. Recoleta 683', datoCurioso: 'Altar en mármol de Carrara importado de Italia.' },
+      { id: 'patronato', titulo: 'Barrio Patronato', categoria: 'Patrimonio Comercial', descripcion: 'Polo comercial e histórico de la diversidad migrante.', lat: -33.4322, lng: -70.6441, horario: '09:30 - 19:30 hrs', ubicacion: 'Calle Patronato / Santa Filomena', datoCurioso: 'Barrio histórico de comunidades árabes, asiáticas y latinas.' },
+      { id: 'franciscana', titulo: 'Iglesia Recoleta Franciscana', categoria: 'Arquitectura', descripcion: 'Construcción colonial de mediados del siglo XVIII.', lat: -33.4331, lng: -70.6475, horario: '09:00 - 18:00 hrs', ubicacion: 'Av. Recoleta 220', datoCurioso: 'Reposan los restos del Venerable Fray Andresito.' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      const map = L.map('map').setView([-33.425, -70.643], 13);
+
+      // Mapa Oscuro (CartoDB Dark Matter)
+      // @ts-ignore
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap © CARTO'
+      }).addTo(map);
+
+      const markersMap = new Map();
+
+      rawLugares.forEach(lugar => {
+        // @ts-ignore
+        const marker = L.marker([lugar.lat, lugar.lng]).addTo(map);
+        marker.bindPopup(`
+          <div style="font-family: system-ui; background: #0a0f0d; color: #00ff66; padding: 6px; border-radius: 6px;">
+            <strong style="font-size: 0.95rem; color: #00ff66;">${lugar.titulo}</strong>
+            <p style="margin: 4px 0 0; font-size: 0.8rem; color: #a7f3d0;">${lugar.categoria}</p>
+          </div>
+        `);
+        markersMap.set(lugar.id, marker);
+      });
+
+      const searchInput = document.getElementById('input-search') as HTMLInputElement;
+      const clearSearchBtn = document.getElementById('btn-clear-search');
+      const filterPills = document.querySelectorAll('.pill-neon');
+      const cardWrappers = document.querySelectorAll('.card-wrapper-neon');
+      const resultsCounter = document.getElementById('results-counter');
+      const noResultsBox = document.getElementById('no-results');
+      const resetFiltersBtn = document.getElementById('reset-filters-btn');
+
+      const modal = document.getElementById('modal-info');
+      const modalTitle = document.getElementById('modal-title');
+      const modalCategory = document.getElementById('modal-category');
+      const modalDescription = document.getElementById('modal-description');
+      const modalLocation = document.getElementById('modal-location');
+      const modalSchedule = document.getElementById('modal-schedule');
+      const modalCuriosity = document.getElementById('modal-curiosity');
+      const modalClose = document.getElementById('modal-close');
+      const btnFocusMap = document.getElementById('btn-focus-map');
+
+      let currentFilter = 'todos';
+      let currentSearch = '';
+      let activeLugarId = '';
+
+      function applyFilters() {
+        let visibleCount = 0;
+        cardWrappers.forEach(wrapper => {
+          const el = wrapper as HTMLElement;
+          const cat = el.getAttribute('data-categoria');
+          const title = el.getAttribute('data-titulo') || '';
+          const desc = el.getAttribute('data-descripcion') || '';
+
+          const matchesCategory = (currentFilter === 'todos') || (cat === currentFilter);
+          const matchesSearch = title.includes(currentSearch) || desc.includes(currentSearch);
+
+          if (matchesCategory && matchesSearch) {
+            el.style.display = 'block';
+            visibleCount++;
+          } else {
+            el.style.display = 'none';
+          }
+        });
+
+        if (resultsCounter) resultsCounter.textContent = `Mostrando ${visibleCount} de ${rawLugares.length} lugares`;
+        if (visibleCount === 0) noResultsBox?.classList.remove('hidden');
+        else noResultsBox?.classList.add('hidden');
+      }
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          filterPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentFilter = pill.getAttribute('data-filter') || 'todos';
+          applyFilters();
+        });
+      });
+
+      searchInput?.addEventListener('input', (e) => {
+        currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
+        if (clearSearchBtn) clearSearchBtn.style.display = currentSearch.length > 0 ? 'block' : 'none';
+        applyFilters();
+      });
+
+      clearSearchBtn?.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        currentSearch = '';
+        if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+        applyFilters();
+      });
+
+      resetFiltersBtn?.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        currentSearch = '';
+        currentFilter = 'todos';
+        filterPills.forEach(p => p.classList.remove('active'));
+        filterPills[0]?.classList.add('active');
+        if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+        applyFilters();
+      });
+
+      document.querySelectorAll('.btn-detail').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-target');
+          const lugar = rawLugares.find(l => l.id === id);
+
+          if (lugar && modal) {
+            activeLugarId = lugar.id;
+            if (modalTitle) modalTitle.textContent = lugar.titulo;
+            if (modalCategory) modalCategory.textContent = lugar.categoria;
+            if (modalDescription) modalDescription.textContent = lugar.descripcion;
+            if (modalLocation) modalLocation.textContent = lugar.ubicacion;
+            if (modalSchedule) modalSchedule.textContent = lugar.horario;
+            if (modalCuriosity) modalCuriosity.textContent = lugar.datoCurioso;
+
+            modal.classList.add('open');
+          }
+        });
+      });
+
+      const closeModal = () => modal?.classList.remove('open');
+      modalClose?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+      btnFocusMap?.addEventListener('click', () => {
+        const lugar = rawLugares.find(l => l.id === activeLugarId);
+        if (lugar) {
+          closeModal();
+          map.flyTo([lugar.lat, lugar.lng], 16, { animate: true, duration: 1.5 });
+          const marker = markersMap.get(lugar.id);
+          if (marker) marker.openPopup();
+          document.getElementById('map')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+  </script>
+
+  <style>
+    /* Estilos Generales Dark Neon */
+    .neon-wrapper {
+      background-color: #060908;
+      color: #e0f2fe;
+      min-height: 100vh;
+      padding: 1rem 0;
+    }
+
+    .page-header-neon {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge-neon {
+      display: inline-block;
+      background: rgba(0, 255, 102, 0.1);
+      border: 1px solid #00ff66;
+      color: #00ff66;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+    }
+
+    .neon-title {
+      font-size: 2.8rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .highlight-neon {
+      color: #00ff66;
+      text-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+    }
+
+    .neon-subtitle {
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Panel de Control */
+    .control-panel-neon {
+      background: rgba(18, 26, 22, 0.8);
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .search-box-neon {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .search-box-neon input {
+      width: 100%;
+      padding: 0.9rem 2.8rem;
+      background: #0d1511;
+      border: 1px solid #1e3a2b;
+      border-radius: 10px;
+      color: #00ff66;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .search-box-neon input:focus {
+      border-color: #00ff66;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    }
+
+    .clear-btn-neon {
+      display: none;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #00ff66;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .filter-pills-neon {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .pill-neon {
+      background: #0d1511;
+      border: 1px solid #1e3a2b;
+      color: #94a3b8;
+      padding: 0.5rem 1.1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pill-neon:hover, .pill-neon.active {
+      background: #00ff66;
+      color: #060908;
+      border-color: #00ff66;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
+    }
+
+    /* Mapa Neon */
+    .map-section-neon {
+      background: rgba(18, 26, 22, 0.8);
+      border: 1px solid rgba(0, 255, 102, 0.3);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 25px rgba(0, 255, 102, 0.15);
+    }
+
+    .map-container-neon {
+      height: 380px;
+      border-radius: 12px;
+      border: 1px solid #00ff66;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
+    }
+
+    .catalog-header-neon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .counter-neon {
+      background: rgba(0, 255, 102, 0.15);
+      border: 1px solid #00ff66;
+      color: #00ff66;
+      padding: 0.4rem 1rem;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    /* Tarjetas y Modal */
+    .no-results-neon {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: #0d1511;
+      border: 1px dashed #00ff66;
+      border-radius: 16px;
+    }
+
+    .no-results-neon.hidden { display: none; }
+
+    .btn-reset-neon {
+      background: #00ff66;
+      color: #060908;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+    }
+
+    /* Modal Dark Neon */
+    .modal-backdrop-neon {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(6, 9, 8, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-backdrop-neon.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card-neon {
+      background: #0d1511;
+      border: 1px solid #00ff66;
+      border-radius: 16px;
+      max-width: 580px;
+      width: 90%;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 0 30px rgba(0, 255, 102, 0.3);
+      color: #e0f2fe;
+    }
+
+    .modal-close-neon {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none; border: none;
+      color: #00ff66; font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .modal-category-neon {
+      color: #00ff66;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .info-grid-neon {
+      background: #121f19;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #1e3a2b;
+      margin-bottom: 1rem;
+    }
+
+    .curiosity-box-neon {
+      background: rgba(0, 255, 102, 0.1);
+      border-left: 4px solid #00ff66;
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-neon-action {
+      background: #00ff66;
+      color: #060908;
+      border: none;
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    }
+  </style>
+</BaseLayout>

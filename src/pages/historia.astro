@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TimelineItem from '../components/TimelineItem.astro';
+---
+<BaseLayout title="Historia y Cultura">
+  <h1>Historia y Cultura de Recoleta</h1>
+  <p>Explora la línea del tiempo y pon a prueba tus conocimientos sobre la comuna.</p>
+
+  <section class="timeline-section">
+    <TimelineItem
+      year="1821"
+      title="Inauguración del Cementerio General"
+      description="Bernardo O’Higgins funda este histórico cementerio, consolidando la zona norte de Santiago."
+    />
+    <TimelineItem
+      year="1882"
+      title="Construcción de la Recoleta Domínica"
+      description="Se finaliza un hito arquitectónico de estilo neoclásico trascendental para la comunidad."
+    />
+    <TimelineItem
+      year="1981"
+      title="Creación Oficial de la Comuna"
+      description="Nace oficialmente la comuna de Recoleta como división administrativa independiente."
+    />
+  </section>
+
+  <!-- Quiz Interactivo -->
+  <section class="quiz-container">
+    <h2>Trivia Patrimonial 🧠</h2>
+    <div id="quiz-box">
+      <p id="quiz-question">¿En qué año se fundó el Cementerio General de Recoleta?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-correct="true">1821</button>
+        <button class="quiz-option" data-correct="false">1910</button>
+        <button class="quiz-option" data-correct="false">1882</button>
+      </div>
+      <p id="quiz-result" class="quiz-result"></p>
+    </div>
+  </section>
+
+  <script>
+    const options = document.querySelectorAll('.quiz-option');
+    const result = document.getElementById('quiz-result');
+
+    options.forEach(opt => {
+      opt.addEventListener('click', () => {
+        const isCorrect = opt.getAttribute('data-correct') === 'true';
+        if (result) {
+          result.textContent = isCorrect ? '🎉 ¡Correcto! O’Higgins lo fundó en 1821.' : '❌ Incorrecto. ¡Inténtalo de nuevo!';
+          result.style.color = isCorrect ? 'green' : 'red';
+        }
+      });
+    });
+  </script>
+
+  <style>
+    .timeline-section {
+      margin: 2rem 0;
+    }
+
+    .quiz-container {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: var(--radius);
+      margin-top: 3rem;
+      box-shadow: var(--shadow);
+    }
+
+    .quiz-options {
+      display: flex;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .quiz-option {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .quiz-option:hover {
+      border-color: var(--primary);
+    }
+
+    .quiz-result {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</BaseLayout>

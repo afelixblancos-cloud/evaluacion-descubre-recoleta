@@ -1,0 +1,76 @@
+---
+const currentPath = Astro.url.pathname;
+---
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">
+      <span class="icon">🏛️</span>
+      <span class="text">Conocer<strong>Recoleta</strong></span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Inicio</a></li>
+        <li><a href="/lugares" class={currentPath === '/lugares' ? 'active' : ''}>Lugares Destacados</a></li>
+        <li><a href="/historia" class={currentPath === '/historia' ? 'active' : ''}>Historia y Cultura</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    backdrop-filter: blur(8px);
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .logo strong {
+    color: var(--primary);
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+
+  a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--primary);
+    background-color: var(--primary-light);
+  }
+
+  a.active {
+    color: var(--primary);
+    background-color: var(--primary-light);
+  }
+</style>

@@ -1,0 +1,19 @@
+
+# Herramienta : Chatgpt y gemini
+
+ Prompt 1: Debo crear un sitio web en astro que deba cumplir con los siguientes requisitos Pages: Implementar al menos 3 páginas diferentes, con contenido propio.Components: 
+Crear e implementar al menos 4 componentes reutilizables.Layouts: Implementar al menos 1 layout, utilizado para mantener una estructura común entre las páginas.Styles: 
+Aplicar estilos CSS para definir colores, tipografías, distribución de elementos y presentación visual.Diseño responsive: Adaptar el sitio a dispositivos móviles y computadores.
+Navegación: Incorporar un menú de navegación funcional entre las 3 páginas.Accesibilidad: Utilizar etiquetas semánticas, textos alternativos en imágenes y colores que permitan unalectura adecuada.Organización: 
+Mantener una estructura de carpetas y archivos ordenada, siguiendo las convenciones de Astro, con colores mas llamativos, que se vea como un sitio web muy profesional
+
+Prompt 2: Ayúdame a organizar la estructura de un proyecto Astro para desarrollar un sitio web sobre una comunidad local de conocer recoleta, con la descripcion de Sitio dedicado a destacar lugares históricos,culturales 
+y patrimoniales de la comuna. Debe contener tres páginas(Inicio, Lugares destacados,Historia y cultura), cuatro componentes y un layout.
+
+prompt 2: dame todas las carpertas que tenga que agregar con su codigo
+
+prompt 3: ahora necesito que la pagina se vea mas llamativa, mas interactiva y mas profesional
+
+prompt 4: mejorame la pagina de lugares destacados, que tenga mucha mas lineas de codigo y se vea muy bakan
+
+prompt 5: a la pagina de inicio ponle mas color, que sea con colores con la tematica verde llamativos, que se vea como un sitio web muy profesional
